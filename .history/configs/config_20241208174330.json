@@ -1,0 +1,35 @@
+{
+  "model": {
+    "name": "vinai/phobert-base",
+    "max_length": 256,
+    "batch_size": 32,
+    "learning_rate": 2e-5,
+    "epochs": 10,
+    "warmup_steps": 1000,
+    "num_symptoms": 100,
+    "num_treatments": 50
+  },
+  "data": {
+    "train_file": "data/processed/train.csv",
+    "val_file": "data/processed/val.csv",
+    "test_file": "data/processed/test.csv"
+  },
+  "training": {
+    "seed": 42,
+    "device": "cuda",
+    "num_workers": 4,
+    "batch_size": 32,
+    "specialty_weight": 1.0,
+    "symptoms_weight": 0.8,
+    "treatment_weight": 0.8,
+    "gradient_accumulation_steps": 1
+  },
+  "paths": {
+    "model_save_path": "data/models",
+    "log_dir": "logs"
+  },
+  "inference": {
+    "top_k": 3,
+    "treatment_threshold": 0.5
+  }
+}

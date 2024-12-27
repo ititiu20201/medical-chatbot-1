@@ -1,0 +1,79 @@
+INFO:__main__:Config: {'model': {'name': 'vinai/phobert-base', 'max_length': 256, 'batch_size': 32, 'learning_rate': 2e-05, 'epochs': 10, 'warmup_steps': 1000, 'num_symptoms': 100, 'num_treatments': 50}, 'data': {'train_file': 'data/processed/train.csv', 'val_file': 'data/processed/val.csv', 'test_file': 'data/processed/test.csv'}, 'training': {'seed': 42, 'device': 'cuda', 'num_workers': 4, 'batch_size': 32, 'specialty_weight': 1.0, 'symptoms_weight': 0.8, 'treatment_weight': 0.8, 'gradient_accumulation_steps': 1}, 'paths': {'model_save_path': 'data/models', 'log_dir': 'logs'}, 'inference': {'top_k': 3, 'treatment_threshold': 0.5}}
+INFO:src.data.dataset:Loaded 12 samples from data/processed/train.csv
+INFO:src.data.dataset:Found 4 unique specialties
+INFO:src.data.dataset:Loaded 4 samples from data/processed/val.csv
+INFO:src.data.dataset:Found 4 unique specialties
+INFO:src.data.dataset:Loaded 0 samples from data/processed/test.csv
+INFO:src.data.dataset:Found 4 unique specialties
+INFO:__main__:Specialty map: {'Nhãn khoa': 0, 'Tiêu hóa': 1, 'Phẫu thuật/Tiêu hóa': 2, 'Độc chất/Tâm thần học': 3}
+INFO:__main__:Number of specialties: 4
+INFO:src.models.enhanced_phobert:Initialized Enhanced Medical PhoBERT with:
+- 4 specialties
+- 100 symptoms
+- 50 treatments
+INFO:__main__:Model hidden size: 768
+INFO:src.training.enhanced_trainer:Trainer initialized on cuda
+INFO:src.training.enhanced_trainer:Starting training...
+INFO:src.training.enhanced_trainer:Epoch 1/10
+Training:   0%|          | 0/1 [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s, loss=1.44, specialty_loss=1.44, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  1.55it/s, loss=1.44, specialty_loss=1.44, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  1.48it/s, loss=1.44, specialty_loss=1.44, symptoms_loss=0, treatment_loss=0]
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  6.16it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  4.96it/s]
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/best_model.pt
+INFO:src.training.enhanced_trainer:Epoch 1 - Train Loss: 1.4440, Val Loss: 1.4100, Val Accuracy: 0.2500
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/checkpoint_epoch_1.pt
+INFO:src.training.enhanced_trainer:Epoch 2/10
+Training:   0%|          | 0/1 [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s, loss=1.4, specialty_loss=1.4, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  4.99it/s, loss=1.4, specialty_loss=1.4, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  4.11it/s, loss=1.4, specialty_loss=1.4, symptoms_loss=0, treatment_loss=0]
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  6.72it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  5.27it/s]
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/best_model.pt
+INFO:src.training.enhanced_trainer:Epoch 2 - Train Loss: 1.4010, Val Loss: 1.4100, Val Accuracy: 0.2500
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/checkpoint_epoch_2.pt
+INFO:src.training.enhanced_trainer:Epoch 3/10
+Training:   0%|          | 0/1 [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s, loss=1.38, specialty_loss=1.38, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  4.91it/s, loss=1.38, specialty_loss=1.38, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  4.05it/s, loss=1.38, specialty_loss=1.38, symptoms_loss=0, treatment_loss=0]
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  6.08it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  4.88it/s]
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/best_model.pt
+INFO:src.training.enhanced_trainer:Epoch 3 - Train Loss: 1.3781, Val Loss: 1.4099, Val Accuracy: 0.2500
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/checkpoint_epoch_3.pt
+INFO:src.training.enhanced_trainer:Epoch 4/10
+Training:   0%|          | 0/1 [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s, loss=1.39, specialty_loss=1.39, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  3.94it/s, loss=1.39, specialty_loss=1.39, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  3.15it/s, loss=1.39, specialty_loss=1.39, symptoms_loss=0, treatment_loss=0]
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  5.13it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  3.90it/s]
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/best_model.pt
+INFO:src.training.enhanced_trainer:Epoch 4 - Train Loss: 1.3924, Val Loss: 1.4098, Val Accuracy: 0.2500
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/checkpoint_epoch_4.pt
+INFO:src.training.enhanced_trainer:Epoch 5/10
+Training:   0%|          | 0/1 [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s, loss=1.42, specialty_loss=1.42, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  4.22it/s, loss=1.42, specialty_loss=1.42, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  3.38it/s, loss=1.42, specialty_loss=1.42, symptoms_loss=0, treatment_loss=0]
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  4.92it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  3.83it/s]
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/best_model.pt
+INFO:src.training.enhanced_trainer:Epoch 5 - Train Loss: 1.4163, Val Loss: 1.4097, Val Accuracy: 0.2500
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/checkpoint_epoch_5.pt
+INFO:src.training.enhanced_trainer:Epoch 6/10
+Training:   0%|          | 0/1 [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s, loss=1.42, specialty_loss=1.42, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  4.27it/s, loss=1.42, specialty_loss=1.42, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  3.45it/s, loss=1.42, specialty_loss=1.42, symptoms_loss=0, treatment_loss=0]
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  4.79it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  3.73it/s]
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/best_model.pt
+INFO:src.training.enhanced_trainer:Epoch 6 - Train Loss: 1.4173, Val Loss: 1.4095, Val Accuracy: 0.2500
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/checkpoint_epoch_6.pt
+INFO:src.training.enhanced_trainer:Epoch 7/10
+Training:   0%|          | 0/1 [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s, loss=1.43, specialty_loss=1.43, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  4.18it/s, loss=1.43, specialty_loss=1.43, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  3.36it/s, loss=1.43, specialty_loss=1.43, symptoms_loss=0, treatment_loss=0]
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  5.07it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  3.88it/s]
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/best_model.pt
+INFO:src.training.enhanced_trainer:Epoch 7 - Train Loss: 1.4300, Val Loss: 1.4092, Val Accuracy: 0.2500
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/checkpoint_epoch_7.pt
+INFO:src.training.enhanced_trainer:Epoch 8/10
+Training:   0%|          | 0/1 [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s, loss=1.42, specialty_loss=1.42, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  4.90it/s, loss=1.42, specialty_loss=1.42, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  4.05it/s, loss=1.42, specialty_loss=1.42, symptoms_loss=0, treatment_loss=0]
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  6.71it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  5.29it/s]
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/best_model.pt
+INFO:src.training.enhanced_trainer:Epoch 8 - Train Loss: 1.4211, Val Loss: 1.4090, Val Accuracy: 0.2500
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/checkpoint_epoch_8.pt
+INFO:src.training.enhanced_trainer:Epoch 9/10
+Training:   0%|          | 0/1 [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s, loss=1.38, specialty_loss=1.38, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  5.28it/s, loss=1.38, specialty_loss=1.38, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  4.21it/s, loss=1.38, specialty_loss=1.38, symptoms_loss=0, treatment_loss=0]
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  6.81it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  5.36it/s]
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/best_model.pt
+INFO:src.training.enhanced_trainer:Epoch 9 - Train Loss: 1.3755, Val Loss: 1.4087, Val Accuracy: 0.2500
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/checkpoint_epoch_9.pt
+INFO:src.training.enhanced_trainer:Epoch 10/10
+Training:   0%|          | 0/1 [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s, loss=1.43, specialty_loss=1.43, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  5.07it/s, loss=1.43, specialty_loss=1.43, symptoms_loss=0, treatment_loss=0]Training: 100%|██████████| 1/1 [00:00<00:00,  4.18it/s, loss=1.43, specialty_loss=1.43, symptoms_loss=0, treatment_loss=0]
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  6.55it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  5.17it/s]
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/best_model.pt
+INFO:src.training.enhanced_trainer:Epoch 10 - Train Loss: 1.4342, Val Loss: 1.4084, Val Accuracy: 0.2500
+INFO:src.training.enhanced_trainer:Checkpoint saved to data/models/checkpoint_epoch_10.pt
+INFO:__main__:Training completed successfully!
+Test job
+Job finished

@@ -1,0 +1,49 @@
+{
+    "model": {
+        "name": "vinai/phobert-base",
+        "max_length": 256,
+        "batch_size": 32,
+        "num_symptoms": 100,
+        "num_treatments": 50
+    },
+    "server": {
+        "host": "0.0.0.0",
+        "port": 8000,
+        "workers": 4,
+        "timeout": 60
+    },
+    "redis": {
+        "host": "redis",
+        "port": 6379,
+        "queue_db": 0,
+        "cache_db": 1
+    },
+    "logging": {
+        "level": "INFO",
+        "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        "file": "/app/logs/app.log",
+        "max_size": 10485760,
+        "backup_count": 5
+    },
+    "security": {
+        "allowed_origins": [
+            "https://your-domain.com"
+        ],
+        "ssl_cert": "/etc/nginx/ssl/cert.pem",
+        "ssl_key": "/etc/nginx/ssl/key.pem"
+    },
+    "monitoring": {
+        "enable_prometheus": true,
+        "metrics_port": 9090
+    },
+    "paths": {
+        "model_path": "/app/data/models/best_model.pt",
+        "static_path": "/app/static",
+        "temp_path": "/app/temp"
+    },
+    "performance": {
+        "cache_timeout": 3600,
+        "max_queue_size": 1000,
+        "batch_processing": true
+    }
+}
